@@ -1,0 +1,41 @@
+[package]
+edition = "2021"
+name = "sigmoid-q15"
+version = "0.1.0"
+authors = ["Jorge Andre Castro <georgeandrec@gmail.com>"]
+build = false
+autolib = false
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
+description = "Fonction d'activation Sigmoid en virgule fixe Q15 pour systèmes embarqués `no_std`, zéro dépendance système"
+documentation = "https://docs.rs/sigmoid-q15"
+readme = "README.md"
+keywords = [
+    "fixed-point",
+    "sigmoid",
+    "no-std",
+    "activation",
+]
+categories = [
+    "mathematics",
+    "no-std",
+    "embedded",
+]
+license = "GPL-2.0-or-later"
+repository = "https://github.com/jorgeandrecastro/sigmoid-q15"
+
+[dependencies]
+embedded-exp = "0.3.0"
+
+[lib]
+name = "sigmoid_q15"
+path = "src/lib.rs"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
